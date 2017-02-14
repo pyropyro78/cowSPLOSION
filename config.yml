@@ -1,0 +1,14 @@
+#How strong should the explosion be?
+ExplodePower: 4
+
+#Should it really be turned on right now?
+AttackTheCow: true
+
+#How many blocks away should know?
+AlertDistance: 10
+
+#Should we alert the players?
+AlertedByTheCowToggle: true
+
+#What should we tell them?
+AlertedByTheCow: That cow did not want to be touched.
