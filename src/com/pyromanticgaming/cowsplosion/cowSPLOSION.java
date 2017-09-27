@@ -32,7 +32,7 @@ public final class cowSPLOSION extends JavaPlugin implements Listener{
 
 	@Override
 	public void onDisable() {
-		getLogger().info("PlateMines has been disabled.");
+		getLogger().info("cowSPLOSION has been disabled.");
 	}
 
 	@EventHandler
