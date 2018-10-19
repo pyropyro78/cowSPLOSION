@@ -18,6 +18,7 @@ public final class cowSPLOSION extends JavaPlugin implements Listener{
 
 		getServer().getPluginManager().registerEvents(this, this);
 
+		//Set configs
 		this.saveDefaultConfig();
 		new MainConfig(this);
 		MainConfig.GetMainValues();
@@ -32,11 +33,16 @@ public final class cowSPLOSION extends JavaPlugin implements Listener{
 	@EventHandler
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
 
+		//Checks if damage caused by player or by arrow. This can cause skeletons to explode cows as well if properly angled.
 		if (MainConfig.attackthecow && (event.getDamager() instanceof Arrow || event.getDamager() instanceof Player) && event.getEntityType() == EntityType.COW) {
+			
+			//Designates where to cause explosion and how powerful it should be
 			event.getEntity().getLocation().getWorld().createExplosion(event.getEntity().getLocation(), MainConfig.ExplodePower);
+			
+			//As a way to ansure a kill, cow is hit on the ground from high fall without falling.
 			event.getEntity().setFallDistance(255);
 
-
+			//This section handles the chat message
 			if (MainConfig.alertedbythecowtoggle) {
 
 				for (Entity e : event.getEntity().getNearbyEntities(MainConfig.alertdistance, MainConfig.alertdistance, MainConfig.alertdistance)) {
