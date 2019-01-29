@@ -18,9 +18,9 @@ public final class cowSPLOSION extends JavaPlugin implements Listener{
 
 		getServer().getPluginManager().registerEvents(this, this);
 
-		this.saveDefaultConfig();
+		this.saveDefaultConfig(); //This saves the config file of not present
 		new MainConfig(this);
-		MainConfig.GetMainValues();
+		MainConfig.GetMainValues(); //Runs function to gather all config settings
 		getLogger().info("cowSPLOSION has been enabled.");
 	}
 
@@ -32,13 +32,15 @@ public final class cowSPLOSION extends JavaPlugin implements Listener{
 	@EventHandler
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
 
+        //Check to see if the cow is hurt by a player or arrow
 		if (MainConfig.attackthecow && (event.getDamager() instanceof Arrow || event.getDamager() instanceof Player) && event.getEntityType() == EntityType.COW) {
-			event.getEntity().getLocation().getWorld().createExplosion(event.getEntity().getLocation(), MainConfig.ExplodePower);
-			event.getEntity().setFallDistance(255);
+			event.getEntity().getLocation().getWorld().createExplosion(event.getEntity().getLocation(), MainConfig.ExplodePower); //Causes an explosion at the location of the cow
+			event.getEntity().setFallDistance(255); //Ensure the cow dies by simulating a fall from 255 blocks
 
 
 			if (MainConfig.alertedbythecowtoggle) {
-
+				
+				//If the toggle is set this will notify players within x blocks with the designated config message
 				for (Entity e : event.getEntity().getNearbyEntities(MainConfig.alertdistance, MainConfig.alertdistance, MainConfig.alertdistance)) {
 					if(e instanceof Player) {
 						e.sendMessage(MainConfig.alertedbythecow);
