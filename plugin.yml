@@ -1,6 +1,8 @@
 name: cowSPLOSION
-version: 0.0.1.0
-description: Causes cows to explode when attacked.
+version: 1.0.0.0
+api-version: 1.15
+load: POSTWORLD
+description: Causes cows to explode when attacked with additional options.
 author: pyropyro78
 main: com.pyromanticgaming.cowsplosion.cowSPLOSION
 
