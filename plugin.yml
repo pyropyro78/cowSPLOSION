@@ -1,5 +1,5 @@
 name: cowSPLOSION
-version: 0.0.1.0
+version: 1.0.0.0r1-SNAPSHOT
 description: Causes cows to explode when attacked.
 author: pyropyro78
 main: com.pyromanticgaming.cowsplosion.cowSPLOSION
